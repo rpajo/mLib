@@ -44,13 +44,10 @@ namespace Movie_Lib
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             try {
-                MetroFramework.Controls.MetroTile tile = new MetroFramework.Controls.MetroTile();
-                tile.Size = new Size(178, 30);
-                tile.Location = new Point(180*(index % 6), 300 * (index/6));
-                
-                tile.Text = movie;
-                this.moviePanel.Controls.Add(tile);
-                resources.ApplyResources(tile, "metroTile"+index);
+                movieControl movieFrame = new movieControl();
+                movieFrame.Controls[1].Text = movie;
+                moviePanel.Controls.Add(movieFrame);
+                resources.ApplyResources(movieFrame, "metroTile"+index);
             }
             catch
             {
@@ -60,6 +57,11 @@ namespace Movie_Lib
         }
 
         private void metroTile1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moviePanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

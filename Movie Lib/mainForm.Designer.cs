@@ -29,21 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.moviePanel = new MetroFramework.Controls.MetroPanel();
+            this.moviePanel = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // moviePanel
             // 
             resources.ApplyResources(this.moviePanel, "moviePanel");
-            this.moviePanel.HorizontalScrollbar = true;
-            this.moviePanel.HorizontalScrollbarBarColor = true;
-            this.moviePanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.moviePanel.HorizontalScrollbarSize = 10;
             this.moviePanel.Name = "moviePanel";
-            this.moviePanel.VerticalScrollbar = true;
-            this.moviePanel.VerticalScrollbarBarColor = true;
-            this.moviePanel.VerticalScrollbarHighlightOnWheel = false;
-            this.moviePanel.VerticalScrollbarSize = 10;
+            this.moviePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.moviePanel_Paint);
             // 
             // MainForm
             // 
@@ -52,12 +45,13 @@
             this.Controls.Add(this.moviePanel);
             this.Name = "MainForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroPanel moviePanel;
+        private System.Windows.Forms.TableLayoutPanel moviePanel;
     }
 }
 
