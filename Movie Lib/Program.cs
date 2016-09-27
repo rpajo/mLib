@@ -32,20 +32,19 @@ namespace Movie_Lib
         }
 
 
-        public static String[] GetFiles(string path)
+        public static List<String> GetFiles(string path)
         {
             DirectoryInfo d = new DirectoryInfo(path);
             DirectoryInfo[] folders = d.GetDirectories();
 
-            Console.WriteLine("BBABBSASFJSAFKSLKDFALFJKSALFKA");
+            List<String> movies = new List<string>();
+
             foreach (DirectoryInfo dir in folders)
             {
                 Console.WriteLine(dir.FullName);
+                movies.Add(dir.Name);
             }
-
-            String[] movies = { };
                
-
             return movies;
 
         }

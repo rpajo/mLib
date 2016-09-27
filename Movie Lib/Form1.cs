@@ -15,9 +15,13 @@ namespace Movie_Lib
         public MainForm()
         {
             InitializeComponent();
-            for(int i = 0; i < 7; i++)
+            List<String> movies = Movie_Lib.Program.GetFiles(@"D:/Downloads");
+
+            int index = 0;
+            foreach (String name in movies)
             {
-                addMovie(i);
+                addMovie(name, index);
+                index++;
             }
         }
 
@@ -36,20 +40,17 @@ namespace Movie_Lib
 
         }
 
-        private void addMovie( int i )
+        private void addMovie( String movie, int index )
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaa");
-            // 
-            // metroTile
-            // 
             try {
                 MetroFramework.Controls.MetroTile tile = new MetroFramework.Controls.MetroTile();
-                tile.Location = new Point(120*i, 3);
-                tile.Size = new Size(115, 30);
-                tile.Text = "Movie no. " + i;
+                tile.Size = new Size(178, 30);
+                tile.Location = new Point(180*(index % 6), 300 * (index/6));
+                
+                tile.Text = movie;
                 this.moviePanel.Controls.Add(tile);
-                resources.ApplyResources(tile, "metroTile"+i);
+                resources.ApplyResources(tile, "metroTile"+index);
             }
             catch
             {
