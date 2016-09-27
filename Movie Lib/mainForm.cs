@@ -15,12 +15,12 @@ namespace Movie_Lib
         public MainForm()
         {
             InitializeComponent();
-            List<String> movies = Movie_Lib.Program.GetFiles(@"D:/Downloads");
+            List<Movie> movies = Movie_Lib.Program.GetFiles(@"D:/Downloads");
 
             int index = 0;
-            foreach (String name in movies)
+            foreach (Movie movie in movies)
             {
-                addMovie(name, index);
+                addMovie(movie);
                 index++;
             }
         }
@@ -40,14 +40,15 @@ namespace Movie_Lib
 
         }
 
-        private void addMovie( String movie, int index )
+        private void addMovie( Movie movie)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             try {
                 movieControl movieFrame = new movieControl();
-                movieFrame.Controls[1].Text = movie;
+                String title = movie.name != null ? movie.name : movie.dir.Name;
+                movieFrame.Controls[1].Text = title;
                 moviePanel.Controls.Add(movieFrame);
-                resources.ApplyResources(movieFrame, "metroTile"+index);
+                resources.ApplyResources(movieFrame, movie.dir.Name);
             }
             catch
             {
