@@ -52,15 +52,48 @@ namespace Movie_Lib
 
             foreach (DirectoryInfo dir in folders)
             {
-                Console.WriteLine(dir.FullName);
+                //Console.WriteLine(dir.FullName);
 
-                movies.Add(dir.Name);
+                String name = trimTitle(dir.Name);
+                Console.WriteLine(dir.Name + " --> " + name);
             }
                
             return movies;
 
         }
 
-        public static 
+        private static Movie getMovieData(String title)
+        {
+            Movie movie = new Movie();
+
+            title = trimTitle(title);
+            
+            return movie;
+        }
+
+        private static string trimTitle(string title)
+        {
+            title = title.Replace("(", string.Empty).Replace(")", string.Empty).Replace("[", string.Empty).Replace("]", string.Empty);
+            string[] strArr = title.Split('.', ' ');
+            int index = 0;
+            int year = 0;
+            foreach (String s in strArr)
+            {
+                bool isNumeric = int.TryParse(s, out year);
+                if (isNumeric && year > 1900 && index > 0) {
+                    index++;
+                    break;
+                };
+                index++;
+            }
+            if (year > 0)
+            {
+                index--;
+            }
+            String[] ret = new String[index];
+            Array.Copy(strArr, 0, ret, 0, index);
+
+            return string.Join(" ", ret);
+        }
     }
 }
