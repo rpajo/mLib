@@ -10,7 +10,18 @@ namespace Movie_Lib
        
     public class Movie
     {
-
+        public String name;
+        public String released;
+        public String runtime;
+        public String genre;
+        public String director;
+        public String actors;
+        public String plot;
+        public String awards;
+        public System.Drawing.Image poster;
+        public int metascore;
+        public double imdbRating;
+        public int imdbId;
     }
 
     static class Program
@@ -42,11 +53,14 @@ namespace Movie_Lib
             foreach (DirectoryInfo dir in folders)
             {
                 Console.WriteLine(dir.FullName);
+
                 movies.Add(dir.Name);
             }
                
             return movies;
 
         }
+
+        public static 
     }
 }
