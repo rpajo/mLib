@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace Movie_Lib
 {
@@ -21,7 +20,6 @@ namespace Movie_Lib
         public String plot;
         public String awards;
         public String posterUrl;
-        public System.Drawing.Image poster;
         public String metascore;
         public String imdbRating;
         public String imdbId;
@@ -61,6 +59,8 @@ namespace Movie_Lib
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+
+            Console.WriteLine("DONE LOADING");
             
         }
 
@@ -82,36 +82,10 @@ namespace Movie_Lib
                 Movie movie = getMovieData(dir.Name);
                 movie.dir = dir;
                 movies.Add(movie);
-                Console.WriteLine(":::" + movies.Last().name);
             }
                
             return movies;
 
-        }
-
-        private static Movie getMovieData(String title)
-        {
-            // time title
-            title = trimTitle(title);
-
-            // rest api setup
-            string endPoint = "http://www.omdbapi.com/";
-            var client = new RestClient(endPoint);
-            var request = new RestRequest(Method.GET);
-            request.AddParameter("t", title);
-            IRestResponse response = client.Execute(request);
-            JObject content = JObject.Parse(response.Content);
-
-            //Console.WriteLine(content);
-            //Console.WriteLine(response.StatusCode);
-
-            Movie movie;
-            Console.WriteLine(content["Response"]);
-
-            movie = new Movie(content);
-
-
-            return movie;
         }
 
         private static string trimTitle(string title)
@@ -138,5 +112,36 @@ namespace Movie_Lib
 
             return string.Join(" ", ret);
         }
+
+        private static Movie getMovieData(String title)
+        {
+            // time title
+            title = trimTitle(title);
+
+            // rest api setup
+            string endPoint = "http://www.omdbapi.com/";
+            var client = new RestClient(endPoint);
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("t", title);
+            IRestResponse response = client.Execute(request);
+            JObject content = JObject.Parse(response.Content);
+
+            Console.WriteLine(content);
+            //Console.WriteLine(response.StatusCode);
+
+
+            Console.WriteLine(content["Response"]);
+            if ((String)content["Response"] == "True")
+            {
+                WebClient webClient = new WebClient();
+                System.Drawing.Image poster;
+                webClient.DownloadDataAsync((System.Uri)content["Poster"], "image.png");
+                
+            }
+
+            return new Movie(content);
+        }
+
     }
+
 }
