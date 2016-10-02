@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.tileText = new MetroFramework.Controls.MetroTile();
-            this.imagePanel = new System.Windows.Forms.Panel();
+            this.posterDisp = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.posterDisp)).BeginInit();
             this.SuspendLayout();
             // 
             // tileText
@@ -39,23 +40,27 @@
             this.tileText.Size = new System.Drawing.Size(197, 34);
             this.tileText.TabIndex = 0;
             this.tileText.Text = "Title";
+            this.tileText.Click += new System.EventHandler(this.tileText_Click);
             // 
-            // imagePanel
+            // posterDisp
             // 
-            this.imagePanel.BackColor = System.Drawing.SystemColors.Control;
-            this.imagePanel.Location = new System.Drawing.Point(0, 43);
-            this.imagePanel.Name = "imagePanel";
-            this.imagePanel.Size = new System.Drawing.Size(197, 254);
-            this.imagePanel.TabIndex = 1;
+            this.posterDisp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.posterDisp.Location = new System.Drawing.Point(3, 43);
+            this.posterDisp.Name = "posterDisp";
+            this.posterDisp.Size = new System.Drawing.Size(194, 257);
+            this.posterDisp.TabIndex = 1;
+            this.posterDisp.TabStop = false;
+            this.posterDisp.Click += new System.EventHandler(this.posterDisp_Click);
             // 
             // movieControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.imagePanel);
+            this.Controls.Add(this.posterDisp);
             this.Controls.Add(this.tileText);
             this.Name = "movieControl";
             this.Size = new System.Drawing.Size(200, 300);
+            ((System.ComponentModel.ISupportInitialize)(this.posterDisp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -63,6 +68,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroTile tileText;
-        private System.Windows.Forms.Panel imagePanel;
+        private System.Windows.Forms.PictureBox posterDisp;
     }
 }
