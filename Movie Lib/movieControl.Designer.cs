@@ -45,9 +45,9 @@
             // posterDisp
             // 
             this.posterDisp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.posterDisp.Location = new System.Drawing.Point(3, 43);
+            this.posterDisp.Location = new System.Drawing.Point(0, 39);
             this.posterDisp.Name = "posterDisp";
-            this.posterDisp.Size = new System.Drawing.Size(194, 257);
+            this.posterDisp.Size = new System.Drawing.Size(197, 261);
             this.posterDisp.TabIndex = 1;
             this.posterDisp.TabStop = false;
             this.posterDisp.Click += new System.EventHandler(this.posterDisp_Click);

@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="detailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="detailsControl.Designer.cs">
+      <DependentUpon>detailsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="detailsControl.resx">
+      <DependentUpon>detailsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainForm.aa.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>

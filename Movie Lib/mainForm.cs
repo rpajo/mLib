@@ -21,6 +21,7 @@ namespace Movie_Lib
             try
             {
                 movieControl movieFrame = new movieControl();
+                movieFrame.movie = movie;
                 String title = movie.name != null ? movie.name : movie.dir.Name;
                 movieFrame.Controls[1].Text = title;
                 Console.WriteLine(movieFrame.Controls[0].Name);

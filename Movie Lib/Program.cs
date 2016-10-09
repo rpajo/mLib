@@ -23,6 +23,7 @@ namespace Movie_Lib
         public String metascore;
         public String imdbRating;
         public String imdbId;
+        public String imbdVotes;
         public DirectoryInfo dir;
 
         public Movie() { }
@@ -38,9 +39,10 @@ namespace Movie_Lib
             this.plot = (string)meta["Plot"];
             this.awards = (string)meta["Awards"];
             this.posterUrl = (string)meta["Poster"];
-            this.metascore = (String)meta["Metascore"];
-            this.imdbRating = (String)meta["imdbRating"];
+            this.metascore = (string)meta["Metascore"];
+            this.imdbRating = (string)meta["imdbRating"];
             this.imdbId = (string)meta["imdbID"];
+            this.imbdVotes = (string)meta["imdbVotes"];
         }
     }
 
@@ -123,21 +125,12 @@ namespace Movie_Lib
             var client = new RestClient(endPoint);
             var request = new RestRequest(Method.GET);
             request.AddParameter("t", title);
+            request.AddParameter("plot", "full");
             IRestResponse response = client.Execute(request);
             JObject content = JObject.Parse(response.Content);
 
             Console.WriteLine(content);
             //Console.WriteLine(response.StatusCode);
-
-
-            Console.WriteLine(content["Response"]);
-            if ((String)content["Response"] == "True")
-            {
-                WebClient webClient = new WebClient();
-                System.Drawing.Image poster;
-                webClient.DownloadDataAsync((System.Uri)content["Poster"], "image.png");
-                
-            }
 
             return new Movie(content);
         }

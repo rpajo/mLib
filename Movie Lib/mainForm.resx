@@ -160,10 +160,10 @@
     <value>4</value>
   </data>
   <data name="moviePanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Absolute,200,Absolute,200,Absolute,200,Absolute,200,Absolute,200" /&gt;&lt;Rows Styles="Absolute,300,Absolute,300,Absolute,300" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Absolute,200,Absolute,200,Absolute,200,Absolute,200,Absolute,225" /&gt;&lt;Rows Styles="Absolute,300,Absolute,300,Absolute,300" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="libRefresh.Location" type="System.Drawing.Point, System.Drawing">
-    <value>525, 25</value>
+    <value>589, 25</value>
   </data>
   <data name="libRefresh.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 27</value>
@@ -217,7 +217,7 @@
     <value>293, 29</value>
   </data>
   <data name="dirLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="dirLink.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -241,7 +241,7 @@
     <value>1</value>
   </data>
   <data name="chDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>446, 25</value>
+    <value>510, 25</value>
   </data>
   <data name="chDir.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 27</value>
@@ -272,6 +272,12 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1065, 757</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>WindowsDefaultLocation</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Movie Library</value>
